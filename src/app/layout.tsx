@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Song Library",
-  description: "A Next.js App to save songs!",
+  title: "Mount Whitney",
+  description: "All things Mt Whitney in 1 place!",
 };
 
 export default function RootLayout({
