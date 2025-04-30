@@ -29,8 +29,27 @@ export default function CountdownTimer() {
     }, []);
 
     return (
-        <div className="text-6xl font-medium">
-            {timeLeft.days}<span className="text-3xl">days</span> {timeLeft.hours}<span className="text-3xl">hours</span> {timeLeft.minutes}<span className="text-3xl">minutes</span> {timeLeft.seconds}<span className="text-3xl">s</span>
-        </div>
+        <>
+            <h1 className="text-2xl font-bold mb-6 text-center">🏔️ Mount Whitney Countdown</h1>
+            <div className="flex flex-col sm:flex-row space-x-4 font-mono">
+                <span className="text-6xl font-medium space-x-2">
+                    <span>{timeLeft.days}</span>
+                    <span className="text-3xl">days</span>
+                </span>
+                <span className="text-6xl font-medium space-x-2">
+                    <span>{timeLeft.hours}</span>
+                    <span className="text-3xl">hours</span>
+                </span>
+                <span className="text-6xl font-medium space-x-2">
+                    <span>{timeLeft.minutes}</span>
+                    <span className="text-3xl">minutes</span>
+                </span>
+                <span className="text-6xl font-medium space-x-2">
+                    <span>{timeLeft.seconds}</span>
+                    <span className="text-3xl">s</span>
+                </span>
+            </div>
+        </>
+
     );
 }
