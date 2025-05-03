@@ -3,10 +3,19 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React from "react";
 
-export default function Activities({ values }) {
+export type Activity = {
+    id: number;
+    name: string;
+    description: string;
+    distance: number; // in meters
+    moving_time: number; // in seconds
+    kilojoules?: number; // optional, in kilojoules
+};
+
+export default function Activities({ values }: { values: Array<Activity> }) {
     return (
         <>
-            {values.map((act) => {
+            {values.map((act: Activity) => {
                 console.log("act", act);
                 return (
                     <>

@@ -9,24 +9,6 @@ mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || "";
 // Toggle options here
 const USE_SYMBOL_LAYER = true;
 
-const MAP_LOAD_FLY_ANIMATION = {
-  START: {
-    center: [-122.28253982937008, 37.65859166951162],
-    zoom: 8.80,
-    pitch: 0.00,
-    bearing: -30.42
-  },
-  END: {
-    center: [-118.25228375856008, 36.58560209588509], // Ideal Start View
-    zoom: 13.75,
-    pitch: 76.00,
-    bearing: -110.80,
-    speed: 0.8,        // Make it smooth
-    curve: 1.5,        // Flight path curvature
-    easing: (t) => t,  // Linear easing
-  },
-}
-
 export default function MountainScene() {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
@@ -37,7 +19,10 @@ export default function MountainScene() {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/outdoors-v12",
-      ...MAP_LOAD_FLY_ANIMATION.START,
+      center: [-122.28253982937008, 37.65859166951162],
+      zoom: 8.80,
+      pitch: 0.00,
+      bearing: -30.42,
       antialias: true,
     });
 
@@ -106,7 +91,13 @@ export default function MountainScene() {
       }
 
       map.current?.flyTo({
-        ...MAP_LOAD_FLY_ANIMATION.END
+        center: [-118.25228375856008, 36.58560209588509], // Ideal Start View
+        zoom: 13.75,
+        pitch: 76.00,
+        bearing: -110.80,
+        speed: 0.8,        // Make it smooth
+        curve: 1.5,        // Flight path curvature
+        easing: (t) => t,  // Linear easing
       });
 
       map.current?.on("moveend", () => {
