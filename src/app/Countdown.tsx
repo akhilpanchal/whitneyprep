@@ -32,7 +32,7 @@ export default function CountdownTimer() {
     return (
         <>
             <h1 className="text-2xl font-bold mb-6 text-center">🏔️ Mount Whitney Countdown</h1>
-            <div className="flex flex-col sm:flex-row font-mono">
+            <div className="flex flex-col sm:flex-row space-x-4 font-mono">
                 <span className="text-6xl font-medium space-x-2">
                     <span>{timeLeft.days}</span>
                     <span className="text-3xl">days</span>
