@@ -31,8 +31,9 @@ export default function Dashboard() {
                     throw new Error(data.error || "Failed to fetch activities");
                 }
                 setActivities(data.activities);
-            } catch (err: any) {
-                setError(err.message);
+            } catch (err) {
+                const errorMessage = err instanceof Error ? err.message : "An unknown error occurred";
+                setError(errorMessage);
             } finally {
                 setLoading(false);
             }

@@ -16,11 +16,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
         strava.athlete.listActivities({ access_token: accessToken }, (err, payload) => {
             if (err) {
-                return res.status(500).json({ error: err.message });
+                const errorMessage = err instanceof Error ? err.message : "An unknown error occurred";
+                return res.status(500).json({ error: errorMessage });
             }
             res.status(200).json({ activities: payload });
         });
-    } catch (err: any) {
-        res.status(500).json({ error: err.message });
+    } catch (err) {
+        const errorMessage = err instanceof Error ? err.message : "An unknown error occurred";
+        res.status(500).json({ error: errorMessage });
     }
 }
