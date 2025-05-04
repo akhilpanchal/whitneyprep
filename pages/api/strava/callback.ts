@@ -29,7 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         // Save token for reuse (use a DB/session in production)
         // process.env.STRAVA_ACCESS_TOKEN = access_token;
 
-        res.redirect("/dashboard");
+        res.redirect("/dashboard/prep");
     } catch (err) {
         console.error("OAuth error:", err);
         res.status(500).json({ error: "OAuth failed" });

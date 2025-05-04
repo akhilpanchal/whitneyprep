@@ -8,6 +8,8 @@ export default function ConnectStravaButton() {
             <Image
                 src={"/connect-strava.svg"}
                 alt="Strava logo"
+                width={150}
+                height={40}
             />
         </Link>
     </div>

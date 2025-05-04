@@ -12,7 +12,7 @@ interface Activity {
     kilojoules?: number;
 }
 
-export default function Dashboard() {
+export default function StravaActivities() {
     const [activities, setActivities] = useState<Activity[]>([]);
     const [loading, setLoading] = useState(true);
     const [unauthorized, setUnauthorized] = useState(false);
@@ -53,9 +53,6 @@ export default function Dashboard() {
     if (error) return <p className="p-6 text-red-600">Error: {error}</p>;
 
     return (
-        <div className="p-6 space-y-4">
-            <h1 className="text-xl font-bold">Your Strava Activities</h1>
             <Activities values={activities} />
-        </div>
     );
 }

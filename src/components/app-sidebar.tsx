@@ -11,7 +11,6 @@ import {
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
-import { NavUser } from "@/components/nav-user"
 import { TeamSwitcher } from "@/components/team-switcher"
 import {
   Sidebar,
@@ -24,11 +23,6 @@ import {
 const BASE_PATH = "/dashboard";
 // This is sample data.
 const data = {
-  user: {
-    name: "akhil",
-    email: "akhilpanchal@gmail.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
   teams: [
     {
       name: "Mt. Whitney",
@@ -60,7 +54,7 @@ const data = {
       icon: BookOpen,
     },
     {
-      title: "Prep",
+      title: "Training",
       url: `${BASE_PATH}/prep`,
       icon: Dumbbell,
     },
@@ -78,7 +72,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        {/* <NavUser user={data.user} /> */}
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
